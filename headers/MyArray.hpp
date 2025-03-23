@@ -41,6 +41,37 @@ class MyArray{
             }
             return *this;
         }
+
+        void Push_Back(const T & val){
+            if(this->m_Size == this->m_Capacity){
+                return;
+            }
+            this->pAddress[this->m_Size] = val;
+            this->m_Size++;
+        }
+
+        void Pop_Back(){
+            if(this->m_Size == 0){
+                return
+            }
+            this->m_Size--;
+        }
+
+        T& operator[](int index){
+            if(index > this->m_Size){
+                return 0;
+            }
+            return this->pAddress[index]
+        }
+
+        int Get_Capacity(){
+            return this->m_Capacity;
+        }
+
+        int Get_Size(){
+            return this->m_Size;
+        }
+
         ~MyArray(){
             if(this->pAddress != NULL){
                 cout << "MyArray析构调用" << endl;
