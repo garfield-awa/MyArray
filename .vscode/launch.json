@@ -5,7 +5,7 @@
             "name": "(gdb) 启动",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/MyArray", // build后面加CMakeLists.txt中project()中配置的项目名（CMakeLists.txt后文会介绍）
+            "program": "${workspaceFolder}/build/staff", // build后面加CMakeLists.txt中project()中配置的项目名（CMakeLists.txt后文会介绍）
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

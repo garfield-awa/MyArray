@@ -6,18 +6,44 @@ template<class T>
 class MyArray{
     public:
         MyArray(int capacity){
+            cout << "MyArray有参构造调用" << endl;
             this->m_Capacity = capacity;
             this->m_Size = 0;
             this->pAddress = new T[this->m_Capacity];
         }
         MyArray(const MyArray& arr){
+            cout << "MyArray拷贝构造调用" << endl;
             this->m_Capacity = arr.m_Capacity;
             this->m_Size = arr.m_Size;
-            this->pAddress = new T[this->m_Capacity];
-        }
+            //必须进行深拷贝
+            this->pAddress = new T[arr.m_Capacity];
+            for(int i = 0; i < this->m_Size; i++){
+                this->pAddress[i] = arr.pAddress[i];
 
+            }
+        }
+        //这里同样防止浅拷贝
+        MyArray& operator=(const MyArray& arr){
+            cout << "MyArray赋值拷贝构造调用" << endl;
+            //这种拷贝方式有可能之前已经有了存储，所以要清除掉之前的数据
+            if(this->pAddress != NULL){
+                delete[] this->pAddress;
+                this->pAddress = NULL;
+                this->m_Capacity = 0;
+                this->m_Size = 0;
+            }
+            this->m_Capacity = arr.m_Capacity;
+            this->m_Size = arr.m_Size;
+            this->pAddress = new T[arr.m_Capacity];
+            for(int i = 0; i < this->m_Size; i++){
+                this->pAddress[i] = arr.pAddress[i];
+
+            }
+            return *this;
+        }
         ~MyArray(){
             if(this->pAddress != NULL){
+                cout << "MyArray析构调用" << endl;
                 delete[] this->pAddress;
                 this->pAddress = NULL;
             }
