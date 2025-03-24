@@ -52,16 +52,13 @@ class MyArray{
 
         void Pop_Back(){
             if(this->m_Size == 0){
-                return
+                return;
             }
             this->m_Size--;
         }
 
         T& operator[](int index){
-            if(index > this->m_Size){
-                return 0;
-            }
-            return this->pAddress[index]
+            return this->pAddress[index];
         }
 
         int Get_Capacity(){
