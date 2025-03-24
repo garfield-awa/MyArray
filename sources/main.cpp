@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 #include "MyArray.hpp"
-
+#include<string>
 void printIntArray(MyArray <int>& arr){
     for(int i = 0; i< arr.Get_Size(); i++){
         cout << arr[i] << endl;
@@ -19,8 +19,22 @@ void test1(){
 
     MyArray<int>arr2(arr1);
     printIntArray(arr2);
+    arr2.Pop_Back();
+    printIntArray(arr2);
 }
+class Person{
+  
+public:
+    Person(string name,int age){
+        this->m_Name = name;
+        this->m_Age = age;
+    }
 
+    string m_Name;
+    int m_Age;
+
+
+};
 int main(){
     test1();
 }
