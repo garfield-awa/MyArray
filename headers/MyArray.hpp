@@ -1,7 +1,7 @@
 #pragma once
 #include<iostream>
 using namespace std;
-
+// 模板类
 template<class T>
 class MyArray{
     public:
@@ -41,7 +41,7 @@ class MyArray{
             }
             return *this;
         }
-
+        // 实现基本的尾插法
         void Push_Back(const T & val){
             if(this->m_Size == this->m_Capacity){
                 return;
@@ -49,7 +49,7 @@ class MyArray{
             this->pAddress[this->m_Size] = val;
             this->m_Size++;
         }
-
+        // 删除尾部数据
         void Pop_Back(){
             if(this->m_Size == 0){
                 return;
@@ -60,7 +60,7 @@ class MyArray{
         T& operator[](int index){
             return this->pAddress[index];
         }
-
+        
         int Get_Capacity(){
             return this->m_Capacity;
         }
